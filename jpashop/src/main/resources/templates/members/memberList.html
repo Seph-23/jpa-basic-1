@@ -22,7 +22,7 @@
         <td th:text="${member.name}"></td>
         <td th:text="${member.address?.city}"></td>
         <td th:text="${member.address?.street}"></td>
-        <td th:text="${member.address?.zipcode}"></td>     <!-- thymeleaf에 ? 를 붙히면 Null 무시 -->
+        <td th:text="${member.address?.zipcode}"></td>     <!-- thymeleaf에 ? 를 붙히면 Null 무시 (Null 이면 더이상 프린트 안해) -->
       </tr>
       </tbody>
     </table>

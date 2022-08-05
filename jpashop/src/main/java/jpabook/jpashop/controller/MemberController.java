@@ -1,5 +1,6 @@
 package jpabook.jpashop.controller;
 
+import java.util.List;
 import javax.validation.Valid;
 import jpabook.jpashop.domain.Address;
 import jpabook.jpashop.domain.Member;
@@ -25,9 +26,11 @@ public class MemberController {
 
   @PostMapping("/members/new")
   public String create(@Valid MemberForm form, BindingResult result) {
-    if (result.hasErrors()) {
+
+    if (result.hasErrors()) {     //name에 아무것도 입력 안했을시 다시 입력창을 띄워줌.
       return "members/createMemberForm";
     }
+
     Address address = new Address(form.getCity(), form.getStreet(), form.getZipcode());
     Member member = new Member();
     member.setName(form.getName());
@@ -36,5 +39,12 @@ public class MemberController {
     memberService.join(member);
 
     return "redirect:/";
+  }
+
+  @GetMapping("/members")
+  public String list(Model model) {
+    List<Member> members = memberService.findMembers();
+    model.addAttribute("members", members);
+    return "members/memberList";
   }
 }

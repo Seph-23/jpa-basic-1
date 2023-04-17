@@ -29,7 +29,9 @@ dependencies {
 
 	implementation 'junit:junit:4.13.2'
 	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'com.h2database:h2'
+//	runtimeOnly 'com.h2database:h2'
+	implementation 'com.mysql:mysql-connector-j:8.0.32'
+
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

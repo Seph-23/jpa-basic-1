@@ -10,7 +10,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create
     properties:
       hibernate:
 #        show_sql: true           #System.out 에 찍는거.
@@ -19,4 +19,4 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug        #로거에 남김
-    org.hibernate.type: trace
+    org.hibernate.type: error

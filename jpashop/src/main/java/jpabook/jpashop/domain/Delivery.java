@@ -11,6 +11,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,6 +26,7 @@ public class Delivery {
   @Column(name = "delivery_id")
   private Long id;
 
+  @JsonIgnore
   @OneToOne(mappedBy = "delivery", fetch = LAZY)
   private Order order;
 
